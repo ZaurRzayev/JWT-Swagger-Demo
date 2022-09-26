@@ -55,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
                 .mvcMatchers(HttpMethod.OPTIONS, "/**")
-                .mvcMatchers("/auth")
+                //.mvcMatchers("/auth/**")
                 .mvcMatchers("/actuator/health")
                 .mvcMatchers("/app/**/*.{js,html,css}")
                 .mvcMatchers("/i18n/**")
@@ -81,7 +81,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers("/swagger-ui")
                 .mvcMatchers("/api-docs")
                 .mvcMatchers("/swagger-ui/index.html")
-                .mvcMatchers("/swagger-resources/**", "/swagger-ui.html");
+                .mvcMatchers("/swagger-resources/**", "/swagger-ui.html")
+                .mvcMatchers("/register")
+                .mvcMatchers("/login");
     }
 
     @Override
